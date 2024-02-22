@@ -1,13 +1,12 @@
 package hei.school.sarisary.service;
 
+import hei.school.sarisary.exception.BadRequestException;
+import hei.school.sarisary.file.BucketComponent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
-import hei.school.sarisary.exception.BadRequestException;
-import hei.school.sarisary.file.BucketComponent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,15 +34,15 @@ public class ImageProcessingService {
         throw new BadRequestException("Please make sure it is a valid image");
       }
 
-      //save the original image
-      uploadImage( fileName + ORIGINAL_SUFFIX, image);
+      // save the original image
+      uploadImage(fileName + ORIGINAL_SUFFIX, image);
 
       BufferedImage convertedImage =
           new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
       convertedImage.getGraphics().drawImage(image, 0, 0, null);
 
-      //save the converted image
-      uploadImage( fileName + CONVERTED_SUFFIX, image);
+      // save the converted image
+      uploadImage(fileName + CONVERTED_SUFFIX, image);
     } catch (IOException e) {
       throw new BadRequestException("Please make sure it is a valid image");
     }

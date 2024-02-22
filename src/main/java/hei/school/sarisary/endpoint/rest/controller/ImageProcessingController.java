@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ImageProcessingController {
 
-    private final ImageProcessingService imageProcessingService;
+  private final ImageProcessingService imageProcessingService;
 
-    @PutMapping("/black-and-white/{id}")
-    private final void uploadImage(
-            @PathVariable String id,
-            byte[] image
-    ){
-        imageProcessingService.convertToBlackAndWhite(image, id);
-    }
+  @PutMapping("/black-and-white/{id}")
+  private final void uploadImage(@PathVariable String id, byte[] image) {
+    imageProcessingService.convertToBlackAndWhite(image, id);
+  }
 }

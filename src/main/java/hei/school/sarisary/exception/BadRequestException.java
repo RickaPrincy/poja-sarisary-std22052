@@ -1,6 +1,5 @@
 package hei.school.sarisary.exception;
 
-import hei.school.sarisary.exception.ApiException;
 import org.springframework.http.HttpStatus;
 
 public class BadRequestException extends ApiException {
